@@ -1,3 +1,3 @@
-module rsgo
+module alone
 
 go 1.19
