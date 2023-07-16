@@ -1,2 +1,2 @@
-go build alone.go
-sudo mv ./alone /usr/local/bin/alone
+go build main.go
+sudo mv ./main /usr/local/bin/alone
