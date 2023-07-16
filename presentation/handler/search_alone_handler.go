@@ -18,7 +18,12 @@ func NewSearchAloneHandler(su usecase.SearchAloneUsecase) SearchAloneHandler {
 }
 
 func (sh *searchAloneHandler) SearchAlone(root_directory string) {
-	words, _ := sh.searchAloneUsecase.GetAloneWords(root_directory)
+	words, err := sh.searchAloneUsecase.GetAloneWords(root_directory)
+	if err != nil {
+		error_msg := fmt.Errorf("ErrorMsg:%v", err)
+		fmt.Println(error_msg)
+		return
+	}
 
 	for _, word := range words {
 		fmt.Println(word.Value)
