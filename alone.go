@@ -8,6 +8,7 @@ import (
 	"regexp"
 )
 
+// usecase and handler
 func main() {
 	directory := "./"
 	files, err := getRubyFiles(directory)
@@ -43,6 +44,7 @@ func main() {
 	}
 }
 
+// repository
 func getRubyFiles(directory string) ([]string, error) {
 	var files []string
 	err := filepath.Walk(directory, func(path string, info os.FileInfo, err error) error {
@@ -57,6 +59,7 @@ func getRubyFiles(directory string) ([]string, error) {
 	return files, err
 }
 
+// domain service
 func extractWords(content string) []string {
 	var words []string
 	r := regexp.MustCompile(`[[:word:]]+`)
