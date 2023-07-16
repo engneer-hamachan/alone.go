@@ -32,6 +32,7 @@ func main() {
 		}
 	}
 
+	// model
 	uniqueWords := make([]string, 0)
 	for word, count := range wordCounts {
 		if count == 1 {
@@ -59,7 +60,7 @@ func getRubyFiles(directory string) ([]string, error) {
 	return files, err
 }
 
-// domain service
+// model
 func extractWords(content string) []string {
 	var words []string
 	r := regexp.MustCompile(`[[:word:]]+`)
