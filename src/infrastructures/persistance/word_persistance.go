@@ -31,8 +31,8 @@ func (wp *wordPersistance) GetFilePaths(root_directory string) ([]string, error)
 	return files, err
 }
 
-func (wp *wordPersistance) GetWords(paths []string) ([]word.Word, error) {
-	var words []word.Word
+func (wp *wordPersistance) GetWords(paths []string) (word.Words, error) {
+	var words word.Words
 	counts := make(map[string]int)
 
 	for _, path := range paths {
@@ -60,7 +60,7 @@ func (wp *wordPersistance) GetWords(paths []string) ([]word.Word, error) {
 			Value: value,
 			Count: count,
 		}
-		words = append(words, word)
+		words.Words = append(words.Words, word)
 	}
 	return words, nil
 }

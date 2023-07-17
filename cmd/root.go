@@ -27,8 +27,7 @@ var rootCmd = &cobra.Command{
 		}
 
 		wordRepository := persistance.NewWordPersistance()
-		wordDomainService := persistance.NewWordDomainService()
-		searchAloneUsecase := usecase.NewSearchAloneUsecase(wordRepository, wordDomainService)
+		searchAloneUsecase := usecase.NewSearchAloneUsecase(wordRepository)
 		searchAloneHandler := handler.NewSearchAloneHandler(searchAloneUsecase)
 		searchAloneHandler.SearchAlone(dir)
 	},

@@ -27,7 +27,7 @@ func (sh *searchAloneHandler) SearchAlone(root_directory string) {
 		return
 	}
 
-	for _, word := range words {
+	for _, word := range words.Words {
 		fmt.Println(word.Value)
 	}
 }
