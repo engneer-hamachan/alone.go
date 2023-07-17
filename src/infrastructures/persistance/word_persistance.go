@@ -1,11 +1,13 @@
 package persistance
 
-import "alone/domain/model/word"
-import "alone/domain/repository"
-import "path/filepath"
-import "os"
-import "io/ioutil"
-import "regexp"
+import (
+	"alone/src/domain/model/word"
+	"alone/src/domain/repository"
+	"io/ioutil"
+	"os"
+	"path/filepath"
+	"regexp"
+)
 
 type wordPersistance struct{}
 

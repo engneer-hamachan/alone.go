@@ -1,7 +1,9 @@
 package usecase
 
-import "alone/domain/model/word"
-import "alone/domain/repository"
+import (
+	"alone/src/domain/model/word"
+	"alone/src/domain/repository"
+)
 
 type SearchAloneUsecase interface {
 	GetAloneWords(root_directory string) ([]word.Word, error)

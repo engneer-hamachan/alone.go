@@ -4,9 +4,9 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"alone/infrastructures/persistance"
-	"alone/presentation/handler"
-	"alone/usecase"
+	"alone/src/infrastructures/persistance"
+	"alone/src/presentation/handler"
+	"alone/src/usecase"
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
