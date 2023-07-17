@@ -1,28 +1,25 @@
 package usecase
 
 import (
-	"alone/src/domain/domain_service"
 	"alone/src/domain/model/word"
 	"alone/src/domain/repository"
 )
 
 type SearchAloneUsecase interface {
-	GetAloneWords(root_directory string) ([]word.Word, error)
+	GetAloneWords(root_directory string) (*word.Words, error)
 }
 
 type searchAloneUsecase struct {
-	wordRepository    repository.WordRepository
-	wordDomainService domain_service.WordDomainService
+	wordRepository repository.WordRepository
 }
 
-func NewSearchAloneUsecase(wr repository.WordRepository, wd domain_service.WordDomainService) SearchAloneUsecase {
+func NewSearchAloneUsecase(wr repository.WordRepository) SearchAloneUsecase {
 	return &searchAloneUsecase{
-		wordRepository:    wr,
-		wordDomainService: wd,
+		wordRepository: wr,
 	}
 }
 
-func (su *searchAloneUsecase) GetAloneWords(root_directory string) ([]word.Word, error) {
+func (su *searchAloneUsecase) GetAloneWords(root_directory string) (*word.Words, error) {
 	file_paths, err := su.wordRepository.GetFilePaths(root_directory)
 	if err != nil {
 		return nil, err
@@ -33,10 +30,7 @@ func (su *searchAloneUsecase) GetAloneWords(root_directory string) ([]word.Word,
 		return nil, err
 	}
 
-	words, err = su.wordDomainService.ExtractUniqueWords(words)
-	if err != nil {
-		return nil, err
-	}
+	unique_words := words.ExtractUniqueWords()
 
-	return words, nil
+	return &unique_words, nil
 }
