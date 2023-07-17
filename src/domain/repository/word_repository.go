@@ -1,6 +1,6 @@
 package repository
 
-import "alone/domain/model/word"
+import "alone/src/domain/model/word"
 
 type WordRepository interface {
 	GetFilePaths(root_directory string) ([]string, error)

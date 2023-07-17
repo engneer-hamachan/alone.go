@@ -1,11 +1,13 @@
 package persistance
 
-import "alone/domain/model/word"
-import "alone/domain/repository"
-import "path/filepath"
-import "os"
-import "io/ioutil"
-import "regexp"
+import (
+	"alone/src/domain/model/word"
+	"alone/src/domain/repository"
+	"io/ioutil"
+	"os"
+	"path/filepath"
+	"regexp"
+)
 
 type wordPersistance struct{}
 
@@ -54,13 +56,11 @@ func (wp *wordPersistance) GetWords(paths []string) ([]word.Word, error) {
 	}
 
 	for value, count := range counts {
-		if count == 1 {
-			word := word.Word{
-				Value: value,
-				Count: count,
-			}
-			words = append(words, word)
+		word := word.Word{
+			Value: value,
+			Count: count,
 		}
+		words = append(words, word)
 	}
 	return words, nil
 }

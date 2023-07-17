@@ -1,7 +1,9 @@
 package handler
 
-import "alone/usecase"
-import "fmt"
+import (
+	"alone/src/usecase"
+	"fmt"
+)
 
 type SearchAloneHandler interface {
 	SearchAlone(root_directory string)
